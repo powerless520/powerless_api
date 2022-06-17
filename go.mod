@@ -1,4 +1,4 @@
-module powerless_web
+module powerless_api
 
 go 1.18
 

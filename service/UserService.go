@@ -2,11 +2,10 @@ package service
 
 import (
 	"fmt"
-	"gorm.io/gorm"
-	"powerless_web/dao"
+	"powerless_api/dao"
 )
 
-func UserPage(page int,pageSize int,db *gorm.DB)  {
+func UserPage(page int,pageSize int)  {
 	fmt.Println("page : ", page, "pageSize : ", pageSize)
-	dao.UserQuery(page,pageSize,db)
+	dao.UserQuery(page,pageSize)
 }

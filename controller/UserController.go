@@ -3,11 +3,13 @@ package controller
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"gorm.io/gorm"
-	"powerless_web/service"
+	"powerless_api/service"
 )
 
-func UserController(ctx *gin.Context,db *gorm.DB)  {
+func UserController(ctx *gin.Context)  {
 	fmt.Println("UserController Begin:")
-	service.UserPage(1,1,db)
+
+	service.UserPage(1,1)
+
+	ctx.Status(200)
 }

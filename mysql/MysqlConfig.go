@@ -7,6 +7,8 @@ import (
 	"gorm.io/gorm/schema"
 )
 
+var mysqlEngine *gorm.DB
+
 func Init() *gorm.DB {
 
 	// refer https://github.com/go-sql-driver/mysql#dsn-data-source-name for details
@@ -22,12 +24,11 @@ func Init() *gorm.DB {
 		return nil
 	}
 
-	//sqlDb,err := db.DB()
-	//if err != nil{
-	//	fmt.Println("db.DB():" + err.Error())
-	//	return nil
-	//}
-
+	mysqlEngine = db
 	// todo sql配置
-	return db
+	return mysqlEngine
+}
+
+func GetMysqlEngine() *gorm.DB  {
+	return mysqlEngine
 }

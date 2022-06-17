@@ -2,11 +2,13 @@ package dao
 
 import (
 	"fmt"
-	"gorm.io/gorm"
-	"powerless_web/model"
+	"powerless_api/model"
+	"powerless_api/mysql"
 )
 
-func UserQuery(page, pageSize int, t *gorm.DB) {
+func UserQuery(page, pageSize int) {
+	// 获取mysql连接
+	t := mysql.GetMysqlEngine()
 
 	var userModels []model.SysUser
 	err := t.Limit(pageSize).Offset(page).Find(&userModels).Error
